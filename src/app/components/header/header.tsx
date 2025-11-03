@@ -23,7 +23,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-8 bg-gradient-to-l from-white/90 to-transparent md:mt-8 max-w-screen-2xl mx-auto  md:rounded-full">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/hesder/logo.png" alt="logo" width={120} height={40} />
+          <Image src="/hesder/logo.svg" alt="logo" width={120} height={40} />
         </Link>
 
         {/* Desktop Links */}
