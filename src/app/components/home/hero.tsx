@@ -10,7 +10,7 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/module
 
 export const Hero = () => {
   return (
-    <section className="relative">
+    <section className="relative" id="hero">
       {/* Floating blur shape */}
       <div className="absolute sm:w-40 md:w-60 lg:w-200 h-40 sm:h-60 md:h-200 bg-primary/15 blur-3xl animate-float -top-80 rounded-full -right-20" />
       <div className="max-w-screen-2xl mx-auto mt-10 lg:mt-10 xl:mt-20 min-h-[80vh] sm:min-h-[90vh] px-4 sm:px-6 lg:px-8">
