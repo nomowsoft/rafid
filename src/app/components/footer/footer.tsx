@@ -3,15 +3,15 @@ import Link from "next/link"
 const Footer = () => {
   return (
     <section>
-      <div className="relative">
-        <div className="absolute -top-10 left-0">
-          <Image src="/footer/bg-left.png" alt="..." width={300} height={20} />
+      <div className="relative overflow-hidden">
+        <div className="absolute top-35 left-0">
+          <Image src="/footer/bg-left.png" alt="..." width={250} height={20} />
         </div>
-        <div className="absolute -top-20 left-0">
-          <Image src="/footer/Vector.png" alt="..." width={300} height={20} />
+        <div className="absolute top-25 left-0">
+          <Image src="/footer/Vector.png" alt="..." width={250} height={20} />
         </div>
-        <div className="absolute -top-20 right-0">
-          <Image src="/footer/bg-right.png" alt="..." width={300} height={20} />
+        <div className="absolute top-20 right-0">
+          <Image src="/footer/bg-right.png" alt="..." width={250} height={20} />
         </div>
         <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-2xl lg:mx-auto mx-10 mt-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 justify-center">
