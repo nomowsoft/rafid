@@ -143,7 +143,7 @@ export const Values = () => {
                             <>
                                 <SwiperSlide key={item.id}>
                                     <Card
-                                        className="bg-card/50 border border-secondary/15 rounded-2xl transition-all duration-300 group hover:scale-105 animate-fade-in overflow-hidden relative bg-white"
+                                        className="bg-card/50 border border-secondary/15 rounded-2xl transition-all duration-300 group hover:scale-105 animate-fade-in overflow-hidden relative bg-white pb-5"
                                     >
                                         <div className="mt-10 px-10">
                                             <Image src="/values/Union.png" alt="..." width={90} height={20} />
