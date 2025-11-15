@@ -49,8 +49,6 @@ const Footer = () => {
                 <h1 className="text-primary">الروابط: </h1>
                 <div className="flex flex-col">
                   <Link className="text-secondary mt-5 hover:text-primary" href="/">الرئسية</Link>
-                  <Link className="text-secondary mt-5 hover:text-primary" href="/">الخدمات</Link>
-                  <Link className="text-secondary mt-5 hover:text-primary" href="/">مكتبة المعرفة</Link>
                 </div>
               </div>
             </div>

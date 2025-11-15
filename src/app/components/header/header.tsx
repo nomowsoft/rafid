@@ -32,8 +32,8 @@ export default function Header() {
 
           {/* Desktop Links */}
           <nav className="hidden md:flex items-center gap-8 relative">
-            {['/', '/who_are_we', '#'].map((href, idx) => {
-              const label = ['الرئيسية', 'من نحن', 'الخدمات'][idx];
+            {['/', '/who_are_we'].map((href, idx) => {
+              const label = ['الرئيسية', 'من نحن'][idx];
               const isActive = pathname === href;
 
               return (
