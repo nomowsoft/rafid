@@ -159,7 +159,7 @@ const SlideContent = ({
             {text}
           </p>
         )}
-        <div className="mt-8 md:mt-12 text-center lg:text-right">
+        <div className="mt-8 md:mt-12 text-center lg:text-right" data-aos="fade-up">
           <Link
             href="#"
             className="text-white bg-primary rounded-full text-lg sm:text-xl md:text-2xl py-2 sm:py-3 px-8 sm:px-10 inline-block hover:bg-primary/90 transition"
