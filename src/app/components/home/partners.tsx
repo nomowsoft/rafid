@@ -55,10 +55,10 @@ export const Partners = () => {
     return (
         <section className="bg-info/20 my-32 py-20">
             <div className="lg:max-w-screen-lg 2xl:lg:max-w-screen-2xl md:mx-auto mx-20">
-                <h1 className="text-5xl text-center">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
                     شركاؤنا
                 </h1>
-                <p className="text-center text-secondary my-10">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-center text-secondary my-8 sm:my-10">
                     شركاؤنا هم سر نجاحنا، وبدعمهم نوسّع أثرنا التنموي.
                 </p>
                 <Swiper

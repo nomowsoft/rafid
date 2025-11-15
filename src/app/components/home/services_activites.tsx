@@ -56,13 +56,13 @@ export const ServicesActivites = () => {
                 <Image src="/activetes/bg-right.png" alt="..." width={300} height={20} />
             </div>
             <div className="max-w-[90rem] mx-auto">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-bold">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center font-bold">
                     الأنشطة والخدمات
                 </h1>
-                <p className="text-center text-secondary my-6 sm:my-10 text-sm sm:text-base md:text-lg">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-center text-secondary my-8 sm:my-10">
                     نقدم حلول واستشارات متخصصة، مع برامج تدريبية وتنموية تعزز قدرات الأفراد والمؤسسات.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
                     {activetesservicve.map((item) => (
                         <Card
                             key={item.id}
@@ -87,9 +87,11 @@ export const ServicesActivites = () => {
                                 </div>
                                 <div className="flex-1">
                                     <div className="px-2 pt-2 mb-2">
-                                        <h3 className="text-lg sm:text-xl font-bold text-primary mt-2">{item.title}</h3>
+                                        <h3 className="lg:text-xl 2xl:text-2xl font-bold text-primary mt-2">
+                                            {item.title}
+                                        </h3>
                                     </div>
-                                    <p className="text-sm sm:text-base text-secondary px-2 leading-relaxed">
+                                    <p className="text-sm sm:text-base  xl:text-lg text-secondary px-2 leading-relaxed">
                                         {item.description}
                                     </p>
                                 </div>

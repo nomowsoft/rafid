@@ -3,6 +3,7 @@ import Link from "next/link"
 const Footer = () => {
   return (
     <section>
+      <hr className="text-primary/10" /> 
       <div className="relative overflow-hidden">
         <div className="absolute top-35 left-0">
           <Image src="/footer/bg-left.png" alt="..." width={250} height={20} />
