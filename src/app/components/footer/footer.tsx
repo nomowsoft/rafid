@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
           <hr className="mt-10 text-info" />
           <h1 className="my-10 text-center text-secondary">
-            © 2025 جميع الحقوق محفوظة لمؤسسة رافد 
+            © 2025 جميع الحقوق محفوظة لمؤسسة رافد للتنمية
           </h1>
         </div>
       </div>

@@ -48,31 +48,31 @@ export const SocialShare = () => {
 
   return (
     <div className="fixed bottom-20 left-8 z-50">
-      <div className="relative w-32 h-32">
+      <div className="relative w-25 h-25">
         {/* Share buttons */}
         {shareButtons.map((btn, index) => (
           <button
             key={btn.label}
             onClick={() => handleShare(btn.label)}
-            className={`absolute top-1/2 left-1/2 w-12 h-12 rounded-full bg-gradient-to-br  bg-info backdrop-blur-md shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center`}
+            className={`absolute top-1/2 left-1/2 w-10 h-10 rounded-full bg-gradient-to-br  bg-info backdrop-blur-md shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center`}
             style={{
               ...getButtonPosition(btn.angle, isOpen),
               transitionDelay: `${index * 50}ms`,
             }}
             aria-label={btn.label}
           >
-            <Image src={btn.image} alt="..." width={30} height={20} />
+            <Image src={btn.image} alt="..." width={25} height={20} />
           </button>
         ))}
 
         {/* Main share button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14  hover:border-primary transition-all duration-500  hover:scale-110"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10  hover:border-primary transition-all duration-500  hover:scale-110"
           aria-label="مشاركة"
         >
-            <div className="bg-info rounded-full h-20 w-20 relative">
-                <Image src="/footer/share.png" alt="..." width={40} height={20} className={`top-5 right-5 absolute ${isOpen ? 'rotate-180' : ''}`}/>
+            <div className="bg-info rounded-full h-15 w-15 flex justify-center items-center">
+                <Image src="/footer/share.png" alt="..." width={30} height={20} className={`top-3 absolute ${isOpen ? 'rotate-180' : ''}`}/>
             </div>
         </button>
       </div>

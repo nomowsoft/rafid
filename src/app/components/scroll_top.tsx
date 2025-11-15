@@ -40,14 +40,14 @@ export const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="group fixed bottom-43 left-12 z-50 transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1 animate-fade-in"
+          className="group fixed bottom-38 left-12 z-50 transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1 animate-fade-in"
           aria-label="العودة للأعلى"
         >
-          <div className="bg-info rounded-full h-18 w-18 relative mb-4 flex items-center justify-center">
+          <div className="bg-info rounded-full h-12 w-12 relative mb-4 flex items-center justify-center">
             <svg
               className="absolute  -rotate-90"
-              width="75"
-              height="75"
+              width="50"
+              height="50"
               viewBox="0 0 80 80"
             >
               <circle
@@ -68,8 +68,8 @@ export const ScrollToTop = () => {
             <Image
               src="/footer/solarup.png"
               alt="الرجوع للأعلى"
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               className="relative top-0"
             />
           </div>
