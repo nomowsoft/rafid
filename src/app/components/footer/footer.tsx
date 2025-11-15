@@ -58,7 +58,7 @@ const Footer = () => {
               <div>
                 <h1 className="text-primary">تواصل معنا</h1>
                 <div className="flex flex-col">
-                  <Link className="text-secondary mt-5 hover:text-primary" href="/">
+                  <Link className="text-secondary mt-5 hover:text-primary" href="#">
                     <div className="flex items-center">
                       <div className="rounded-full bg-info shadow-xl p-2">
                         <Image src="/footer/icon_c1.png" alt="..." width={15} height={20} />
@@ -68,7 +68,7 @@ const Footer = () => {
                       </div>
                     </div>
                   </Link>
-                  <Link className="text-secondary mt-5 hover:text-primary" href="/">
+                  <Link className="text-secondary mt-5 hover:text-primary" href="#">
                     <div className="flex items-center">
                       <div className="rounded-full bg-info shadow-xl p-2">
                         <Image src="/footer/icon_c2.png" alt="..." width={15} height={20} />
@@ -78,23 +78,15 @@ const Footer = () => {
                       </div>
                     </div>
                   </Link>
-                  <Link className="text-secondary mt-5 hover:text-primary" href="/">
+                  <Link className="text-secondary mt-5 hover:text-primary" href="#">
                     <div className="flex items-center">
                       <div className="rounded-full bg-info shadow-xl p-2">
                         <Image src="/footer/icon_c3.png" alt="..." width={15} height={20} />
                       </div>
                       <div className="mx-2 mt-1">
-                        <span dir="ltr" className="text-secondary">https://rafde.org</span>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link className="text-secondary mt-5 hover:text-primary" href="/">
-                    <div className="flex items-center">
-                      <div className="rounded-full bg-info shadow-xl p-2">
-                        <Image src="/footer/icon_c4.png" alt="..." width={15} height={20} />
-                      </div>
-                      <div className="mx-2 mt-1">
-                        <span dir="ltr" className="text-secondary">YEMEN</span>
+                        <span dir="ltr" className="text-secondary">
+                          حضرموت - سيؤن - شارع الجزائر - فوق بنك الأمل - الدور الأول
+                        </span>
                       </div>
                     </div>
                   </Link>
@@ -104,7 +96,7 @@ const Footer = () => {
           </div>
           <hr className="mt-10 text-info" />
           <h1 className="my-10 text-center text-secondary">
-            © 2025 Copyright 
+            © 2025 جميع الحقوق محفوظة لمؤسسة رافد 
           </h1>
         </div>
       </div>
