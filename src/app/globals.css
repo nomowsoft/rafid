@@ -90,3 +90,39 @@ main{
   font-weight: bold;
   color: #fff;
 }
+
+@keyframes lineFill {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes lineGrow {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-lineFill {
+  animation: lineFill 3s ease-in-out forwards;
+  transform: scaleX(0);
+}
+
+.animate-lineGrow {
+  animation: lineGrow 1.5s ease-in-out forwards;
+  transform: scaleY(0);
+}
+
+/* نضيف تأخيرات مختلفة */
+.delay-0s { animation-delay: 0s; }
+.delay-2s { animation-delay: 2s; }
+.delay-4s { animation-delay: 4s; }
+.delay-6s { animation-delay: 6s; }
+.delay-8s { animation-delay: 8s; }
+

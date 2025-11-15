@@ -1,7 +1,9 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { Card } from "../ui/card";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { SwiperRef } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -47,21 +49,79 @@ const values: Values[] = [
     },
 ]
 export const Values = () => {
+    const swiperRef = useRef<SwiperRef | null>(null);
+    const [scrollEnabled, setScrollEnabled] = useState(false);
+    const [firstSlidePassed, setFirstSlidePassed] = useState(false);
+
+    useEffect(() => {
+        if (!swiperRef.current) return;
+        let sectionVisible = false;
+
+        const section = document.getElementById("values-section");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    sectionVisible = entry.isIntersecting && entry.intersectionRatio > 0.5;
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        if (section) observer.observe(section);
+
+        const handleWheel = (e: WheelEvent) => {
+            if (!sectionVisible || !section) return;
+
+            const swiperInstance = swiperRef.current?.swiper;
+            if (!swiperInstance || scrollEnabled) return;
+
+            const isLastSlide = swiperInstance.realIndex === values.length - 1;
+
+            if (!firstSlidePassed && isLastSlide && e.deltaY > 0) {
+                setScrollEnabled(true);
+                setFirstSlidePassed(true);
+                return;
+            }
+
+            const sectionRect = section.getBoundingClientRect();
+            const sectionTop = sectionRect.top;
+            const sectionBottom = sectionRect.bottom;
+            const isFullyVisible = sectionTop >= 0 && sectionBottom <= window.innerHeight;
+            if (!isFullyVisible) return;
+
+            e.preventDefault();
+
+            if (e.deltaY > 0) {
+                if (isLastSlide) return;
+                swiperInstance.slideNext();
+            } else {
+                if (swiperInstance.realIndex === 0) return;
+                swiperInstance.slidePrev();
+            }
+        };
+
+
+        window.addEventListener("wheel", handleWheel, { passive: false });
+
+        return () => {
+            window.removeEventListener("wheel", handleWheel);
+            if (section) observer.unobserve(section);
+        };
+    }, [scrollEnabled, firstSlidePassed]);
+
     return (
-        <section className="bg-info/20 my-32 py-20">
-            <div className="lg:max-w-screen-lg 2xl:lg:max-w-screen-2xl md:mx-auto mx-20">
-                <h1 className="text-5xl text-center">
+        <section id="values-section" className="bg-info/20 my-32 py-20">
+            <div className="lg:max-w-screen-lg 2xl:max-w-screen-2xl md:mx-auto mx-4 sm:mx-10">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center font-bold">
                     القيم
                 </h1>
-                <p className="text-center text-secondary my-10">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-center text-secondary my-8 sm:my-10">
                     تعتمد &#34;رافد للتنمية&#34; على مجموعة من القيم الأساسية التي تشكل أساس عملها وتوجهاتها الاستراتيجية
                 </p>
                 <Swiper
+                    ref={swiperRef}
                     modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    }}
+                    autoplay={{ delay: 6000, disableOnInteraction: false }}
                     loop={true}
                     slidesPerView="auto"
                     spaceBetween={30}
@@ -82,7 +142,7 @@ export const Values = () => {
                         return (
                             <>
                                 <SwiperSlide key={item.id}>
-                                    <Card 
+                                    <Card
                                         className="bg-card/50 border border-secondary/15 rounded-2xl transition-all duration-300 group hover:scale-105 animate-fade-in overflow-hidden relative bg-white"
                                     >
                                         <div className="mt-10 px-10">
@@ -95,11 +155,11 @@ export const Values = () => {
                                             <Image src="/vision_message/Vector2.png" alt="..." width={180} height={20} />
                                         </div>
                                         <div className="px-10 pt-2 mb-4">
-                                            <h3 className="text-lg lg:text-2xl font-bold text-foreground text-primary mt-2">
+                                            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground text-primary mt-2">
                                                 {item.title}
                                             </h3>
                                         </div>
-                                        <p className="text-muted-foreground px-5 md:px-10 h-20 text-secondary">
+                                        <p className="text-muted-foreground px-3 xl:px-10 h-20 text-secondary md:text-lg xl:text-xl">
                                             {item.description}
                                         </p>
                                     </Card>

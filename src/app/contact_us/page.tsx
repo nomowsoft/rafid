@@ -11,20 +11,36 @@ export default function ContactUs() {
         email: "",
         company: "",
         phone: "",
-        subject: "",
         message: ""
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setFormData({
-            name: "",
-            email: "",
-            company: "",
-            phone: "",
-            subject: "",
-            message: ""
-        });
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                alert("تم إرسال الرسالة بنجاح");
+                setFormData({
+                    name: "",
+                    email: "",
+                    company: "",
+                    phone: "",
+                    message: "",
+                });
+            } else {
+                alert("حدث خطأ أثناء الإرسال");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("تعذر الاتصال بالخادم");
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -69,11 +85,12 @@ export default function ContactUs() {
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <Label htmlFor="subject" className="text-primary">البريد الإلكتروني</Label>
+                                    <Label htmlFor="email" className="text-primary">البريد الإلكتروني</Label>
                                     <Input
-                                        id="subject"
-                                        name="subject"
-                                        value={formData.subject}
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        value={formData.email}
                                         onChange={handleChange}
                                         required
                                         placeholder="info@gmail.com"

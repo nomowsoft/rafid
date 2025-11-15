@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (open) {
@@ -19,25 +21,43 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="top-0 sticky left-0 w-full z-50  backdrop-blur-md">
-      <div className="flex items-center justify-between px-8 bg-gradient-to-l from-white/90 to-transparent md:mt-8 max-w-screen-2xl mx-auto  md:rounded-full">
+    <header className="sticky left-0 w-full z-50  backdrop-blur-md">
+      <div className="flex items-center justify-between px-8 bg-gradient-to-l from-white/90 to-transparent max-w-screen-2xl mx-auto  md:rounded-full">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <Image src="/hesder/logo.svg" alt="logo" width={120} height={40} />
-        </Link>
+        <div className="flex items-center gap-15">
 
-        {/* Desktop Links */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-primary hover:text-primary/70 transition">
-            الرئيسية
+          <Link href="/" className="flex items-center space-x-2">
+            <Image src="/hesder/logo.svg" alt="logo" width={120} height={40} />
           </Link>
-          <Link href="/who_are_we" className="text-primary hover:text-primary/70 transition">
-            من نحن
-          </Link>
-          <Link href="#" className="text-primary hover:text-primary/70 transition">
-            الخدمات
-          </Link>
-        </nav>
+
+          {/* Desktop Links */}
+          <nav className="hidden md:flex items-center gap-8 relative">
+            {['/', '/who_are_we', '#'].map((href, idx) => {
+              const label = ['الرئيسية', 'من نحن', 'الخدمات'][idx];
+              const isActive = pathname === href;
+
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`relative text-lg font-semibold transition-all duration-300
+          ${isActive ? 'text-primary' : 'text-secondary hover:text-secondary/70'}
+        `}
+                >
+                  {label}
+                  {/* underline animated */}
+                  <span
+                    className={`absolute left-0 -bottom-1 w-full h-[2px]  border-2 border-primary/50 rounded-full
+            transition-all duration-300
+            ${isActive ? 'scale-x-100' : 'scale-x-0'}
+            origin-left
+          `}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
         {/* Contact Button */}
         <div className="hidden md:block">
